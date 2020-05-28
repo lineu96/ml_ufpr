@@ -1,0 +1,27 @@
+__________________________________________________________
+Machine Learning - CE231, 2017-02
+__________________________________________________________
+Professores: Eduardo Ferreira
+             Walmes Zeviani
+__________________________________________________________
+Nomes: Lineu Alberto C. de Freitas (GRR20149144)
+       Leonardo Henrique B. Kruger (GRR20149101)
+__________________________________________________________
+A pasta contém: 
+ - 2 bases de dados
+ - 2 scripts .R (um para cada base)
+ - slides da apresentação
+ - relatório
+__________________________________________________________
+Atentar para o encoding dos .R, como usamos sistemas
+operacionais diferentes um dos scripts ficou em utf-8
+e o outro em iso-8859-1.
+__________________________________________________________
+Varremos uma quantidade razoável de métodos, portanto leva
+algum tempo para rodar todas as análises.
+__________________________________________________________
+Estamos a disposição para esclarecimentos.
+
+Lineu    - lialcafre@gmail.com 
+Leonardo - leonardohenriquebk@gmail.com 
+__________________________________________________________

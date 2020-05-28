@@ -1,0 +1,512 @@
+xlab('Petal Length') +
+ylab('Petal Width') +
+ggtitle('Iris')+
+theme_light() +
+geom_rug()
+ggplot(data = data,
+mapping = aes(x = Sepal.Length,
+color = Species,
+fill= Species)) +
+geom_histogram(binwidth=.5, alpha=.5, position="identity")
+ggplot(data = data,
+mapping = aes(x = Sepal.Length,
+color = Species,
+fill= Species)) +
+geom_density(alpha=.3)
+ggplot(data = data,
+mapping = aes(x = Sepal.Length,
+color = Species,
+fill= Species)) +
+geom_density(alpha=.3)
+ggplot(data = data,
+mapping = aes(y = Sepal.Length,
+x= Species,
+color = Species)) +
+geom_boxplot()
+ggplot(data = data,
+mapping = aes(y = Sepal.Length,
+x= Species,
+color = Species)) +
+geom_violin()
+ggplot(data = data,
+mapping = aes(x = Sepal.Length,
+color = Species,
+fill = Species)) +
+geom_bar(position= 'dodge', alpha = .3)
+ggplot(data = data,
+mapping = aes(y = Sepal.Length,
+x= Species,
+color = Species)) +
+geom_violin()
+ggplot(data = data,
+mapping = aes(y = Sepal.Length,
+x= Species,
+color = Species)) +
+geom_violin() +
+facet_grid(~Species)
+ggplot(data = data,
+mapping = aes(x = Petal.Length,
+y = Petal.Width,
+color = Species,
+fill= Species)) +
+geom_point() +
+geom_smooth() +
+xlab('Petal Length') +
+ylab('Petal Width') +
+ggtitle('Iris')+
+theme_light() +
+geom_rug() +
+facet_grid(~Species)
+data <- iris
+names(data)
+ggplot(data = data,
+mapping = aes(x = Petal.Length,
+y = Petal.Width,
+color = Species,
+fill= Species)) +
+geom_point() +
+geom_smooth() +
+xlab('Petal Length') +
+ylab('Petal Width') +
+ggtitle('Iris')+
+theme_light() +
+geom_rug()
+ggplot(data = data,
+mapping = aes(x = Sepal.Length,
+color = Species,
+fill= Species)) +
+geom_histogram(binwidth=.5, alpha=.5, position="identity")
+ggplot(data = data,
+mapping = aes(x = Sepal.Length,
+color = Species,
+fill= Species)) +
+geom_density(alpha=.3)
+ggplot(data = data,
+mapping = aes(x = Sepal.Length,
+color = Species,
+fill= Species)) +
+geom_density(alpha=.3)
+ggplot(data = data,
+mapping = aes(y = Sepal.Length,
+x= Species,
+color = Species)) +
+geom_boxplot()
+ggplot(data = data,
+mapping = aes(y = Sepal.Length,
+x= Species,
+color = Species)) +
+geom_violin() +
+facet_grid(~Species)
+ggplot(data = data,
+mapping = aes(x = Sepal.Length,
+color = Species,
+fill = Species)) +
+geom_bar(position= 'dodge', alpha = .3)
+ggplot(data = data,
+mapping = aes(y = Sepal.Length,
+x= Species,
+color = Species)) +
+geom_violin() +
+facet_grid(~Species) +
+coord_flip()
+ggplot(data = data,
+mapping = aes(y = Sepal.Length,
+x= Species,
+color = Species)) +
+geom_boxplot() +
++
+coord_flip()
+ggplot(data = data,
+mapping = aes(y = Sepal.Length,
+x= Species,
+color = Species)) +
+geom_boxplot() +
+coord_flip()
+ggplot(data = data,
+mapping = aes(y = Sepal.Length,
+x= Species,
+color = Species)) +
+geom_boxplot() +
+coord_polar()
+install.packages('inla')
+install.packages('inla',
+dependencies=TRUE,
+repos='http://cran.rstudio.com/')
+fth <- c(0.4, 0.6)
+fy.th <- matrix(c(0.1, 0.5, 0.4, 0.3, 0.5, 0.2), nc = 3, dimnames = list(c("th1",
+"th2"), c("y1", "y2", "y3")))
+(fyth <- fth * fy.th)
+(fy <- colSums(fyth))
+(fth.y <- MASS:::fractions(t(t(fyth)/drop(fy))))
+curve(dbeta(x, 38.4, 42.6), from = 0, to = 1, n = 1001, xlab = expression(theta),
+ylab = expression(paste("P[", theta, "|y]")))
+curve(dbeta(x, 38.4, 42.6), from = 0, to = 1, n = 1001, xlab = expression(theta),
+ylab = expression(paste("P[", theta, "|y]")))
+curve(dbeta(x, 38.4, 42.6), from = 0, to = 1, n = 1001, xlab = expression(theta),
+ylab = expression(paste("P[", theta, "|y]")))
+curve(dbeta(x, 4.4, 6.6), from = 0, to = 1, add = TRUE, col = 2, lty = 3, lwd = 1.5,
+n = 1001)
+abline(v = 34/70, lty = 2, col = 4)
+curve(dbeta(x, 34 + 1, 70 - 34 + 1), from = 0, to = 1, add = TRUE, col = 4,
+lty = 2, n = 1001)
+legend("topright", c("priori", "posteriori", "verossimilhança"), lty = c(3,
+1, 2), col = c(2, 1, 4), lwd = c(1.5, 1, 1))
+ml<- read.csv2('ml.csv', header = TRUE, sep = ';', dec = ',') # lendo os dados
+setwd("C:/Users/lacf/Google Drive/UFPR-Est.08/Machine Learning/CE231 - Leonardo, Lineu")
+ml<- read.csv2('ml.csv', header = TRUE, sep = ';', dec = ',') # lendo os dados
+ml$class <- ifelse(ml$saldo < median(ml$saldo), 'risco', 'ok') # definindo a resposta
+str(ml)           # estrutura: todas numéricas, menos a resposta (class)
+summary(ml)       # muito NA
+ncol(ml)          # 48 variáveis
+nrow(ml)          # 2394 indivíduos
+nrow(na.omit(ml)) # apenas 4 indivíduos com todas as variáveis completas
+ml3 <- ml[ ,c(3,4,5,11,12,13,14,15,16,17,18,21,25,29,30
+,32,33,34,36, 37,38,39,41,48)]
+nrow(ml3) - nrow(na.omit(ml3)) # 227 linhas tem NA
+ml4 <- na.omit(ml3) # base sem NA
+nrow(ml4)           # 2167 indivíduos
+sum(ml4$class == 'risco') # 1046 indivíduos na classe risco
+sum(ml4$class == 'ok')    # 1121 indivíduos na classe ok
+cor(ml4)
+cor(ml3)
+cor(ml2)
+cor(ml)
+summary(ml4)
+ml3 <- ml[ ,c(3,4,5,11,12,13,14,15,16,17,18,21,25,29,30
+,32,33,34,36, 37,38,39,41,48)]
+summary(ml3)
+ml<- read.csv2('ml.csv', header = TRUE, sep = ';', dec = ',') # lendo os dados
+cor(ml)
+summary(ml)
+ncol(ml)
+cor(ml[,-48])
+summary(cor(ml[,-48]))
+summary((ml[,-48]))
+summary((ml[,-c(1, 48)]))
+cor((ml[,-c(1, 48)]))
+?cor
+cor((ml[,-c(1, 48)]), na.rm = T)
+cor(ml[,-c(1, 48)], na.rm = T)
+cor(ml[,-c(1, 48)], use = "na.or.complete")
+cor(ml[,-c(1, 48)], use = "pairwise.complete.obs")
+x11()
+corrplot::corrplot(cor(ml[,-c(1, 48)], use = "pairwise.complete.obs"))
+th <- rgamma(1, 35, 7)
+yp <- rpois(1, lam=th)
+th
+yp
+th <- rgamma(1000, 35, 7)
+yp <- rpois(1000, lam=th)
+table(yp)
+yp.sim <- table(yp)/1000
+yp.teo <- dnbinom(0:14, size=35, prob=7/8)
+rbind(yp.sim, yp.teo)
+yp.teo <- dnbinom(0:14, size=35, prob=7/8)
+rbind(yp.sim, yp.teo)
+## Exercício 6.1
+## Adicional:
+## Seja uma amostra 7,5,8,9,3
+## n=5 , soma = 33
+## Seja a priori G(2, 2)
+## A posteriori é G(2+33, 2+5)
+## A preditiva analítica é BN(2+33, (2+5)/(2+5+1))
+## 1. Obtendo 1 simulação da preditiva
+## Passo 1: simula valor do parâmetro da posteriori
+th <- rgamma(1, 35, 7)
+## Passo 2: simula valor predito da verossimilhança
+yp <- rpois(1, lam=th)
+## 2. Obtendo 1000 simulações da preditiva
+## Passo 1: simula valores do parâmetro da posteriori
+th <- rgamma(1000, 35, 7)
+## Passo 2: simula valores predito da verossimilhança
+yp <- rpois(1000, lam=th)
+## Preditiva estimada por simulação
+table(yp)
+yp.sim <- table(yp)/1000
+## Preditiva exata
+yp.teo <- dnbinom(0:14, size=35, prob=7/8)
+yp.teo
+rbind(yp.sim, yp.teo)
+## Exercício 6.1
+## Adicional:
+## Seja uma amostra 7,5,8,9,3
+## n=5 , soma = 33
+## Seja a priori G(2, 2)
+## A posteriori é G(2+33, 2+5)
+## A preditiva analítica é BN(2+33, (2+5)/(2+5+1))
+## 1. Obtendo 1 simulação da preditiva
+## Passo 1: simula valor do parâmetro da posteriori
+th <- rgamma(1, 35, 7)
+## Passo 2: simula valor predito da verossimilhança
+yp <- rpois(1, lam=th)
+## 2. Obtendo 1000 simulações da preditiva
+## Passo 1: simula valores do parâmetro da posteriori
+th <- rgamma(1000, 35, 7)
+## Passo 2: simula valores predito da verossimilhança
+yp <- rpois(1000, lam=th)
+## Preditiva estimada por simulação
+table(yp)
+yp.sim <- table(yp)/1000
+## Preditiva exata
+yp.teo <- dnbinom(0:14, size=35, prob=7/8)
+## comparando
+rbind(yp.sim, yp.teo)
+rbind(yp.sim, yp.teo)
+th <- rgamma(1000, 35, 7)
+th <- rgamma(10000, 35, 7)
+yp <- rpois(10000, lam=th)
+yp.sim <- table(yp)/10000
+yp.teo <- dnbinom(0:max(yp), size=35, prob=7/8)
+rbind(yp.sim, yp.teo)
+rbind(yp.sim, yp.teo)
+## Exercício 6.1
+## Adicional:
+## Seja uma amostra 7,5,8,9,3
+## n=5 , soma = 33
+## Seja a priori G(2, 2)
+## A posteriori é G(2+33, 2+5)
+## A preditiva analítica é BN(2+33, (2+5)/(2+5+1))
+## 1. Obtendo 1 simulação da preditiva
+## Passo 1: simula valor do parâmetro da posteriori
+th <- rgamma(1, 35, 7)
+## Passo 2: simula valor predito da verossimilhança
+yp <- rpois(1, lam=th)
+## 2. Obtendo 1000 simulações da preditiva
+## Passo 1: simula valores do parâmetro da posteriori
+th <- rgamma(1000, 35, 7)
+## Passo 2: simula valores predito da verossimilhança
+yp <- rpois(1000, lam=th)
+## Preditiva estimada por simulação
+table(yp)
+yp.sim <- table(yp)/1000
+## Preditiva exata
+yp.teo <- dnbinom(0:14, size=35, prob=7/8)
+## comparando
+rbind(yp.sim, yp.teo)
+## Pode-se aumentar o número de simulações para uma melhor predição
+th <- rgamma(1000, 35, 7)
+th <- rgamma(10000, 35, 7)
+yp <- rpois(10000, lam=th)
+yp.sim <- table(yp)/10000
+yp.teo <- dnbinom(0:max(yp), size=35, prob=7/8)
+rbind(yp.sim, yp.teo)
+plot((0:17)-0.05, yp.teo, type="h")
+## Exercício 6.1
+## Adicional:
+## Seja uma amostra 7,5,8,9,3
+## n=5 , soma = 33
+## Seja a priori G(2, 2)
+## A posteriori é G(2+33, 2+5)
+## A preditiva analítica é BN(2+33, (2+5)/(2+5+1))
+## 1. Obtendo 1 simulação da preditiva
+## Passo 1: simula valor do parâmetro da posteriori
+th <- rgamma(1, 35, 7)
+## Passo 2: simula valor predito da verossimilhança
+yp <- rpois(1, lam=th)
+## 2. Obtendo 1000 simulações da preditiva
+## Passo 1: simula valores do parâmetro da posteriori
+th <- rgamma(1000, 35, 7)
+## Passo 2: simula valores predito da verossimilhança
+yp <- rpois(1000, lam=th)
+## Preditiva estimada por simulação
+table(yp)
+yp.sim <- table(yp)/1000
+## Preditiva exata
+yp.teo <- dnbinom(0:14, size=35, prob=7/8)
+## comparando
+rbind(yp.sim, yp.teo)
+## Pode-se aumentar o número de simulações para uma melhor predição
+th <- rgamma(1000, 35, 7)
+th <- rgamma(10000, 35, 7)
+yp <- rpois(10000, lam=th)
+yp.sim <- table(yp)/10000
+yp.teo <- dnbinom(0:max(yp), size=35, prob=7/8)
+rbind(yp.sim, yp.teo)
+## Gráficos
+## preditiva teórica (analítica)
+plot((0:17)-0.05, yp.teo, type="h")
+lines((0:17)+0.05, yp.sim, type="h", col=2)
+yp.nonB <- dpois(0:17, lam=33/5)
+lines((0:17)+0.15, yp.nonB, type="h", col=4)
+curve(dnorm(x, m=5, sd=sqrt(5+35/49)), add=T)
+veross <- function(par, slx = -4.59, n = 20, log = TRUE,
+paramet = c("theta", "phi")) {
+parametrization <- match.arg(paramet)
+switch(parametrization,
+"theta" = {theta <- par},
+"phi" = {theta <- exp(par)}
+)
+out <- n * (log(theta) + log(theta + 1)) + (theta - 1) * slx
+if (!log) out <- exp(out)
+attr(out, "parametrization") <- parametrization
+return(out)
+}
+veross <- function(par, slx = -4.59, n = 20, log = TRUE,
+paramet = c("theta", "phi")) {
+parametrization <- match.arg(paramet)
+switch(parametrization,
+"theta" = {theta <- par},
+"phi" = {theta <- exp(par)}
+)
+out <- n * (log(theta) + log(theta + 1)) + (theta - 1) * slx
+if (!log) out <- exp(out)
+attr(out, "parametrization") <- parametrization
+return(out)
+}
+tmaxi <- optimize(veross, interval = c(0, 60), paramet = "theta",
+slx = -4.59, n = 20, maximum = TRUE)$maximum
+tmaxi
+thess <- optimHess(tmaxi, veross)
+thess
+pmaxi <- optimize(veross, interval = c(0, 60), paramet = "phi",
+slx = -4.59, n = 20, maximum = TRUE)$maximum
+phess <- optimHess(pmaxi, veross)
+ep.theta <- sqrt(-thess^-1)
+ep.phi <- sqrt(-phess^-1)
+curve(veross(par = x, paramet = "theta"),
+from = tmaxi - 3* ep.theta,
+to = tmaxi + 3*ep.theta,
+ylab = "log-Verossimilhança",
+xlab = "")
+abline(v = tmaxi, lty = 2, col = 1)
+par(new = TRUE)
+curve(veross(par = x, paramet = "phi"),
+from = pmaxi - 3*ep.phi,
+to = pmaxi + 3*ep.phi,
+ylab = "",
+xlab = "",
+axes = FALSE,
+col = 4)
+axis(3, at = pretty(pmaxi + c(-1, 1) * 3 * ep.phi), col.axis = 4)
+abline(v = pmaxi, lty = 3, col = 4)
+legend("topright",
+legend = expression(theta==theta, phi==log(theta)),
+lty = 1, lwd = 2, col = c(1, 4), bty = "n")
+curve(dgamma(x, 1, 1), from = 0, to = 12,
+xlab = expression(theta))
+abline(v = tmaxi, lty = 2, col = 4)
+posterior <- function(par, slx = -4.59, n = 20, a = 1, b = 1,
+log = TRUE, paramet = c("theta", "phi")) {
+parametrization <- match.arg(paramet)
+switch(parametrization,
+"theta" = {theta <- par},
+"phi" = {theta <- exp(par)}
+)
+out <- n * log(theta + 1) + (n + a - 1) * log(theta) -
+theta * (1/b - slx)
+if (!log) out <- exp(out)
+return(out)
+}
+tmaxip <- optimize(posterior, interval = c(0, 60), paramet = "theta",
+slx = -4.59, n = 20, maximum = TRUE)$maximum
+thessp <- optimHess(tmaxip, posterior)
+c("tmaxi" = tmaxip, "thess" = thessp)
+pmaxip <- optimize(posterior, interval = c(0, 60), paramet = "phi",
+slx = -4.59, n = 20, maximum = TRUE)$maximum
+phessp <- optimHess(pmaxip, posterior)
+c("pmaxi" = pmaxip, "phess" = phessp)
+ep.thetap <- sqrt(-thess^-1)
+ep.phip <- sqrt(-phess^-1)
+curve(posterior(par = x, paramet = "theta"),
+from = tmaxip - 3*ep.thetap,
+to = tmaxip + 3*ep.thetap,
+ylab = "log-posteriori",
+xlab = "")
+abline(v = tmaxip, lty = 2, col = 1)
+par(new = TRUE)
+curve(posterior(par = x, paramet = "phi"),
+from = pmaxip - 3*ep.phip,
+to = pmaxip + 3*ep.phip,
+ylab = "",
+xlab = "",
+axes = FALSE,
+col = 4)
+axis(3, at = pretty(pmaxip + c(-1, 1) * 3 * ep.phip), col.axis = 4)
+abline(v = pmaxip, lty = 3, col = 4)
+legend("topright",
+legend = expression(theta==theta, phi==log(theta)),
+lty = 1, lwd = 2, col = c(1, 4), bty = "n")
+cte <- integrate(veross, lower = 0, upper = tmaxi+5*ep.theta,
+log = FALSE)$value
+th <- rgamma(1, 35, 7)
+th
+yp <- rpois(1, lam=th)
+th <- rgamma(1000, 35, 7)
+yp <- rpois(1000, lam=th)
+table(yp)
+yp.sim <- table(yp)/1000
+yp.teo <- dnbinom(0:14, size=35, prob=7/8)
+rbind(yp.sim, yp.teo)
+rbind(yp.sim, yp.teo)
+## Passo 1: simula valores do parâmetro da posteriori
+th <- rgamma(1000, 35, 7)
+## Passo 2: simula valores predito da verossimilhança
+yp <- rpois(1000, lam=th)
+## Preditiva estimada por simulação
+table(yp)
+yp.sim <- table(yp)/1000
+## Preditiva exata
+yp.teo <- dnbinom(0:14, size=35, prob=7/8)
+## comparando
+rbind(yp.sim, yp.teo)
+## Pode-se aumentar o número de simulações para uma melhor predição
+th <- rgamma(1000, 35, 7)
+yp <- rpois(10000, lam=th)
+th <- rgamma(10000, 35, 7)
+yp.sim <- table(yp)/10000
+yp.teo <- dnbinom(0:max(yp), size=35, prob=7/8)
+rbind(yp.sim, yp.teo)
+plot((0:17)-0.05, yp.teo, type="h")
+lines((0:17)+0.05, yp.sim, type="h", col=2)
+yp.nonB <- dpois(0:17, lam=33/5)
+lines((0:17)+0.15, yp.nonB, type="h", col=4)
+curve(dnorm(x, m=5, sd=sqrt(5+35/49)), add=T)
+set.seed(20180419)
+(y <- rnorm(12, mean=50, sd=8))
+dados <- list(n=length(y), m=mean(y), v = var(y), SQ = sum((y-mean(y))^2))
+dados
+(sigma2.sim <- with(dados, 1/rgamma(1, shape=(n-1)/2, scale=2/SQ)))
+(mu.sim <- with(dados, rnorm(1, mean=m, sd=sqrt(sigma2.sim/n))))
+N <- 25000
+sigma2.sim <- with(dados, 1/rgamma(N, shape=(n-1)/2, scale=2/SQ))
+mu.sim <- with(dados, rnorm(N, mean=m, sd=sqrt(sigma2.sim/n)))
+par(mfrow=c(1,2))
+t.sim <- with(dados, (mu.sim - m)/sqrt(v/n))
+curve(dt(x, df=dados$n-1), from=-4, to=4)
+lines(density(t.sim), col=4)
+curve(dnorm(x), from=-4, to=4, col=2, lty=3, add=TRUE)
+chi.sim <- with(dados, SQ/sigma2.sim)
+curve(dchisq(x, df=dados$n-1), from=0, to=40)
+lines(density(chi.sim), col=4)
+mu0 <- 50
+mu0 <- 50
+A <- with(dados, SQ + n*(mu0 - m)^2)
+(sigma2.simG <- with(dados, 1/rgamma(1, shape=n/2, scale=2/A)))
+(mu.simG <- with(dados, rnorm(1, mean=m, sd=sqrt(sigma2.sim/n))))
+N <- 25000
+mu.simG <- sigma2.simG <- numeric(N)
+mu.simG[1] <- 30
+sigma2.simG[1] <- 100
+{for(i in 2:N){
+A <- with(dados, SQ + n*(mu.simG[i-1]-m)^2)
+sigma2.simG[i] <- with(dados, 1/rgamma(1, shape=n/2, scale=2/A))
+mu.simG[i] <- with(dados, rnorm(1, mean=m, sd=sqrt(sigma2.simG[i]/n)))
+}
+}
+plot(mu.simG, type="l")
+plot(mu.simG[-(1:1000)], type="l")
+plot(sigma2.simG, type="l")
+plot(sigma2.simG[-(1:1000)], type="l")
+plot(log(sigma2.simG), type="l")
+plot(log(sigma2.simG[-(1:1000)]), type="l")
+par(mfrow=c(1,2))
+t.sim <- with(dados, (mu.sim - m)/sqrt(v/n))
+curve(dt(x, df=dados$n-1), from=-4, to=4)
+lines(density(t.sim), col=4)
+t.simG <- with(dados, (mu.simG - m)/sqrt(v/n))
+lines(density(t.simG), col=3, lwd=2)
+chi.sim <- with(dados, SQ/sigma2.sim)
+curve(dchisq(x, df=dados$n-1), from=0, to=40)
+lines(density(chi.sim), col=4)
+chi.simG <- with(dados, SQ/sigma2.simG)
+lines(density(chi.simG), col=3, lwd=2)
